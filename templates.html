@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>
+        L_NO_TOUCH = false;
+        L_DISABLE_3D = false;
+    </script>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    <script src="chatbot.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        #map {
+            position: relative;
+            width: 0.0%;
+            height: 0.0%;
+            left: 0.0%;
+            top: 0.0%;
+        }
+        .leaflet-container { font-size: 1rem; }
+        .slider-container {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: rgba(255,255,255,0.9);
+            padding: 15px 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .slider-label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .slider-value {
+            margin: 10px 0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .slider-flex-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+        .slider-labels {
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 0.7em;
+            text-align: left;
+            margin-top: 0;
+        }
+        .vertical-slider {
+            -webkit-appearance: slider-vertical;
+            appearance: slider-vertical;
+            writing-mode: bt-lr; /* for Firefox */
+            width: 20px;
+            height: 300px;
+            border-radius: 4px;
+            background: #d3d3d3;
+            outline: none;
+            margin: 0;
+        }
+        .vertical-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+        .vertical-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+            border: none;
+        }
+        .info-modal-body {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .info-container {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .info-container .btn {
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-weight: bold;
+        }
+        .info-container .btn:hover {
+            background: rgba(255,255,255,1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .chat-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .chat-button:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+        .chat-window {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+        .chat-header {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chat-header h5 {
+            margin: 0;
+            font-size: 16px;
+        }
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+        .chat-input-container {
+            padding: 15px;
+            border-top: 1px solid #dee2e6;
+            display: flex;
+            gap: 10px;
+        }
+        .chat-input {
+            flex: 1;
+            border: 1px solid #ced4da;
+            border-radius: 20px;
+            padding: 8px 15px;
+            outline: none;
+        }
+        .chat-input:focus {
+            border-color: #007bff;
+        }
+        .chat-send {
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chat-send:hover {
+            background: #0056b3;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .message.user {
+            background: #007bff;
+            color: white;
+            margin-left: auto;
+        }
+        .message.bot {
+            background: #e9ecef;
+            color: #212529;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider-label">Flooding Level (m)</div>
+        <div class="slider-flex-row">
+            <input type="range" id="floodSlider" class="vertical-slider" min="0" max="3" step="0.1" value="{{ flood_level }}" orient="vertical">
+            <div class="slider-labels">
+                <span>3.0</span>
+                <span>2.8</span>
+                <span>2.6</span>
+                <span>2.4</span>
+                <span>2.2</span>
+                <span>2.0</span>
+                <span>1.8</span>
+                <span>1.6</span>
+                <span>1.4</span>
+                <span>1.2</span>
+                <span>1.0</span>
+                <span>0.8</span>
+                <span>0.6</span>
+                <span>0.4</span>
+                <span>0.2</span>
+                <span>0</span>
+            </div>
+        </div>
+        <div class="slider-value">
+            <span id="floodValue">{{ flood_level }}</span> m
+        </div>
+    </div>
+    
+    <!-- Separate Info Button Container -->
+    <div class="info-container">
+        <button id="infoBtn" class="btn btn-info">ℹ️ Info</button>
+    </div>
+    
+    <!-- Chat Button Container -->
+    <div class="chat-container">
+        <button id="chatBtn" class="chat-button">💬</button>
+    </div>
+    
+    <!-- Chat Window -->
+    <div id="chatWindow" class="chat-window">
+        <div class="chat-header">
+            <h5>Dataset Assistant</h5>
+            <button class="chat-close" id="chatClose">×</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+        </div>
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." maxlength="500">
+            <button class="chat-send" id="chatSend">➤</button>
+        </div>
+    </div>
+    
+    <!-- Info Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="infoModalLabel">Dataset Information</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body info-modal-body">
+            {% include 'dataset_info.html' %}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="folium-map" id="map"></div>
+    
+    <script>
+        // Set slider to current flood level from URL if present
+        function getQueryParam(name) {
+            const url = new URL(window.location.href);
+            return url.searchParams.get(name);
+        }
+        
+        const slider = document.getElementById('floodSlider');
+        const valueLabel = document.getElementById('floodValue');
+        let currentLevel = getQueryParam('level');
+        if (currentLevel !== null) {
+            slider.value = currentLevel;
+            valueLabel.textContent = currentLevel;
+        }
+        
+        slider.addEventListener('input', function() {
+            valueLabel.textContent = this.value;
+        });
+        
+        slider.addEventListener('change', function() {
+            // Reload page with new flood level as query param
+            const url = new URL(window.location.href);
+            url.searchParams.set('level', this.value);
+            window.location.href = url.toString();
+        });
+        
+        // Info button event (Bootstrap 5 native API)
+        document.addEventListener('DOMContentLoaded', function() {
+            var infoModal = new bootstrap.Modal(document.getElementById('infoModal'), {
+                keyboard: true,
+                backdrop: false  // Disable backdrop to allow map interactions
+            });
+            document.getElementById('infoBtn').onclick = function() {
+                infoModal.show();
+            };
+        });
+    </script>
+    
+    {{ map_html | safe }}
+</body>
+</html> 
