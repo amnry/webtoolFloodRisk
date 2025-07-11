@@ -42,7 +42,7 @@ def chat():
             openai_client = openai.OpenAI(api_key=api_key)
         
         # Create system message for context
-        system_message = """You are a specialized AI assistant for CoastalDEM v3.0 dataset questions. You have deep knowledge about this high-accuracy digital elevation model for coastal areas.
+        system_message = """You are a specialized AI assistant for CoastalDEM v3.0 dataset questions. Provide SHORT, CONCISE answers (1-2 sentences maximum).
 
         COASTALDEM V3.0 DATASET INFORMATION:
         - Dataset: CoastalDEM v3.0
@@ -56,17 +56,7 @@ def chat():
         - Processing Method: Machine learning-based error correction applied to SRTM and ASTER GDEM data
         - Validation: Verified against high-accuracy lidar and GPS measurements
 
-        You can help users understand:
-        - CoastalDEM dataset specifications and methodology
-        - How CoastalDEM improves flood risk assessment compared to other DEMs
-        - Technical details about the machine learning error correction process
-        - Applications in sea level rise modeling and coastal planning
-        - Data quality, accuracy, and limitations
-        - How to interpret and use CoastalDEM data
-        - Comparison with other elevation datasets (SRTM, ASTER GDEM, etc.)
-        - Best practices for coastal flood risk analysis using CoastalDEM
-
-        Be concise, informative, and technical when appropriate. Always reference CoastalDEM v3.0 specifically when discussing the dataset."""
+        IMPORTANT: Keep all responses brief and to the point. Use 1-2 sentences maximum. Be direct and avoid lengthy explanations."""
         
         # Call OpenAI API
         response = openai_client.chat.completions.create(
@@ -75,7 +65,7 @@ def chat():
                 {"role": "system", "content": system_message},
                 {"role": "user", "content": user_message}
             ],
-            max_tokens=500,
+            max_tokens=150,
             temperature=0.7
         )
         
