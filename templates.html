@@ -304,34 +304,15 @@
       </div>
     </div>
     
-    <div class="folium-map" id="map"></div>
+    <!-- Map container for dynamic loading -->
+    <div id="map" style="position:absolute;top:0;bottom:0;right:0;left:0;"></div>
+    
+    <!-- Add new JavaScript files for REST API functionality -->
+    <script src="api_client.js"></script>
+    <script src="map_manager.js"></script>
+    <script src="app.js"></script>
     
     <script>
-        // Set slider to current flood level from URL if present
-        function getQueryParam(name) {
-            const url = new URL(window.location.href);
-            return url.searchParams.get(name);
-        }
-        
-        const slider = document.getElementById('floodSlider');
-        const valueLabel = document.getElementById('floodValue');
-        let currentLevel = getQueryParam('level');
-        if (currentLevel !== null) {
-            slider.value = currentLevel;
-            valueLabel.textContent = currentLevel;
-        }
-        
-        slider.addEventListener('input', function() {
-            valueLabel.textContent = this.value;
-        });
-        
-        slider.addEventListener('change', function() {
-            // Reload page with new flood level as query param
-            const url = new URL(window.location.href);
-            url.searchParams.set('level', this.value);
-            window.location.href = url.toString();
-        });
-        
         // Info button event (Bootstrap 5 native API)
         document.addEventListener('DOMContentLoaded', function() {
             var infoModal = new bootstrap.Modal(document.getElementById('infoModal'), {
@@ -344,6 +325,7 @@
         });
     </script>
     
-    {{ map_html | safe }}
+    <!-- Map container for dynamic loading -->
+    <div id="map" style="position:absolute;top:0;bottom:0;right:0;left:0;"></div>
 </body>
 </html> 
