@@ -1,7 +1,9 @@
 import sys
 import ee
 
-ee.Authenticate()
+ee.Authenticate(scopes=['https://www.googleapis.com/auth/earthengine', 
+                        'https://www.googleapis.com/auth/devstorage.full_control',
+                        'https://www.googleapis.com/auth/cloud-platform'])
 ee.Initialize(project='ee-amanarya1910')
 import folium
 
@@ -11,10 +13,13 @@ def generate_map(flood_level=2.0):
     ny_coastline = ee.Image('projects/ee-amanarya1910/assets/NY_coastline')
 
     # Use MODIS land-water mask (0 = water, 1 = land)
-    modis_land_mask = ee.Image('MODIS/006/MOD44W/2015_01_01').select('water_mask').eq(0)
+    # modis_land_mask = ee.Image('MODIS/006/MOD44W/2015_01_01').select('water_mask').eq(0)
 
     # Create flood mask: areas ≤ flood_level AND on land
-    flooded_land = ny_coastline.lte(flood_level).And(modis_land_mask).selfMask()
+    # flooded_land = ny_coastline.lte(flood_level).And(modis_land_mask).selfMask()
+    
+    # Create flood mask: areas ≤ flood_level (without land sea filter)
+    flooded_land = ny_coastline.lte(flood_level).selfMask()
 
     # Visualization parameters
     flood_vis_params = {
@@ -35,29 +40,20 @@ def generate_map(flood_level=2.0):
             ).add_to(self)
         folium.Map.add_ee_layer = add_ee_layer
 
-    # Create a folium map centered on New York with OpenStreetMap as default
+    # Create a folium map centered on New York with Google Satellite as default
     map_center = [40.7128, -73.5060] # [41.7128, -73.5060]  # NYC coordinates (Manhattan)
     coast_map = folium.Map(
         location=map_center, 
         zoom_start=10.5,
-        tiles=None,
-        attr='OpenStreetMap'
+        tiles='https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
+        attr='Google Satellite'
     )
 
-    # Add OpenStreetMap as a named base layer
+    # Add OpenStreetMap as an alternative base layer
     folium.TileLayer(
         tiles='https://tile.openstreetmap.org/{z}/{x}/{y}.png',
         name='OpenStreetMap',
         attr='OpenStreetMap',
-        overlay=False,
-        control=True
-    ).add_to(coast_map)
-
-    # Add Google Satellite as an alternative base layer
-    folium.TileLayer(
-        tiles='https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
-        name='Google Satellite',
-        attr='Google Satellite',
         overlay=False,
         control=True
     ).add_to(coast_map)

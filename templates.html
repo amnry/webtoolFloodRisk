@@ -258,6 +258,38 @@
             background: #f8f9fa;
             cursor: not-allowed;
         }
+        .tide-toggle-container {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .tide-toggle-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 140px;
+            justify-content: center;
+        }
+        .tide-toggle-btn:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+        }
+        .tide-toggle-btn:active {
+            transform: translateY(0);
+        }
+        .tide-toggle-btn i {
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -286,6 +318,12 @@
         </div>
         <div class="slider-value">
             <span id="floodValue">{{ flood_level }}</span> m
+        </div>
+        <div class="tide-toggle-container">
+            <button id="tideToggle" class="tide-toggle-btn">
+                <i class="fas fa-water"></i>
+                Tide Predictions
+            </button>
         </div>
     </div>
     
@@ -354,6 +392,11 @@
             const url = new URL(window.location.href);
             url.searchParams.set('level', this.value);
             window.location.href = url.toString();
+        });
+        
+        // Tide toggle button event
+        document.getElementById('tideToggle').addEventListener('click', function() {
+            window.location.href = '/tide-predictions';
         });
         
         // Info button event (Bootstrap 5 native API)

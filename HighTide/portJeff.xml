@@ -1,0 +1,1424 @@
+
+	<datainfo>
+		<origin>NOAA/NOS/CO-OPS</origin>
+		<disclaimer>
+		Disclaimer: These data are based upon the latest information available as of the date of your request, and may differ from the published tide tables.
+		</disclaimer>
+	<datarange>Daily</datarange>
+		<producttype>Tide Prediction</producttype>
+		<stationname>Port Jefferson Harbor entrance</stationname>
+		<state>NY</state>
+		<stationid>8514594</stationid>
+	
+		<stationtype>Subordinate</stationtype>
+		<referencedToStationName>Bridgeport</referencedToStationName>
+		<referencedToStationId>8467150</referencedToStationId>
+		<HeightOffsetLow>* 0.98</HeightOffsetLow>
+		<HeightOffsetHigh>* 0.98</HeightOffsetHigh>
+		<TimeOffsetLow>1</TimeOffsetLow>
+		<TimeOffsetHigh>2</TimeOffsetHigh>
+		
+		<BeginDate>20250601 03:59</BeginDate>
+		<EndDate>20250630 22:20</EndDate>
+		
+		<dataUnits>Metric</dataUnits>
+		 
+	<Timezone>LST_LDT</Timezone>
+	<Datum>MLLW</Datum>
+	<IntervalType>High/Low</IntervalType>
+	<data>
+	
+			<item>
+				<date>2025/06/01</date>
+				<day>Sun</day>
+		
+				<time>03:59 AM</time>
+			
+				<pred>2.08</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/01</date>
+				<day>Sun</day>
+		
+				<time>10:28 AM</time>
+			
+				<pred>0.14</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/01</date>
+				<day>Sun</day>
+		
+				<time>04:38 PM</time>
+			
+				<pred>2.01</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/01</date>
+				<day>Sun</day>
+		
+				<time>10:52 PM</time>
+			
+				<pred>0.29</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/02</date>
+				<day>Mon</day>
+		
+				<time>04:57 AM</time>
+			
+				<pred>1.98</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/02</date>
+				<day>Mon</day>
+		
+				<time>11:22 AM</time>
+			
+				<pred>0.21</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/02</date>
+				<day>Mon</day>
+		
+				<time>05:34 PM</time>
+			
+				<pred>2.00</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/02</date>
+				<day>Mon</day>
+		
+				<time>11:52 PM</time>
+			
+				<pred>0.32</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/03</date>
+				<day>Tue</day>
+		
+				<time>05:56 AM</time>
+			
+				<pred>1.89</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/03</date>
+				<day>Tue</day>
+		
+				<time>12:16 PM</time>
+			
+				<pred>0.27</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/03</date>
+				<day>Tue</day>
+		
+				<time>06:29 PM</time>
+			
+				<pred>2.01</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/04</date>
+				<day>Wed</day>
+		
+				<time>12:51 AM</time>
+			
+				<pred>0.32</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/04</date>
+				<day>Wed</day>
+		
+				<time>06:55 AM</time>
+			
+				<pred>1.83</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/04</date>
+				<day>Wed</day>
+		
+				<time>01:08 PM</time>
+			
+				<pred>0.32</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/04</date>
+				<day>Wed</day>
+		
+				<time>07:23 PM</time>
+			
+				<pred>2.03</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/05</date>
+				<day>Thu</day>
+		
+				<time>01:48 AM</time>
+			
+				<pred>0.29</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/05</date>
+				<day>Thu</day>
+		
+				<time>07:52 AM</time>
+			
+				<pred>1.80</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/05</date>
+				<day>Thu</day>
+		
+				<time>01:58 PM</time>
+			
+				<pred>0.35</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/05</date>
+				<day>Thu</day>
+		
+				<time>08:14 PM</time>
+			
+				<pred>2.06</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/06</date>
+				<day>Fri</day>
+		
+				<time>02:40 AM</time>
+			
+				<pred>0.25</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/06</date>
+				<day>Fri</day>
+		
+				<time>08:46 AM</time>
+			
+				<pred>1.80</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/06</date>
+				<day>Fri</day>
+		
+				<time>02:46 PM</time>
+			
+				<pred>0.36</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/06</date>
+				<day>Fri</day>
+		
+				<time>09:01 PM</time>
+			
+				<pred>2.09</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/07</date>
+				<day>Sat</day>
+		
+				<time>03:29 AM</time>
+			
+				<pred>0.20</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/07</date>
+				<day>Sat</day>
+		
+				<time>09:35 AM</time>
+			
+				<pred>1.82</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/07</date>
+				<day>Sat</day>
+		
+				<time>03:31 PM</time>
+			
+				<pred>0.37</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/07</date>
+				<day>Sat</day>
+		
+				<time>09:45 PM</time>
+			
+				<pred>2.12</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/08</date>
+				<day>Sun</day>
+		
+				<time>04:13 AM</time>
+			
+				<pred>0.15</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/08</date>
+				<day>Sun</day>
+		
+				<time>10:20 AM</time>
+			
+				<pred>1.85</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/08</date>
+				<day>Sun</day>
+		
+				<time>04:15 PM</time>
+			
+				<pred>0.36</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/08</date>
+				<day>Sun</day>
+		
+				<time>10:26 PM</time>
+			
+				<pred>2.14</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/09</date>
+				<day>Mon</day>
+		
+				<time>04:55 AM</time>
+			
+				<pred>0.12</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/09</date>
+				<day>Mon</day>
+		
+				<time>11:02 AM</time>
+			
+				<pred>1.88</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/09</date>
+				<day>Mon</day>
+		
+				<time>04:58 PM</time>
+			
+				<pred>0.35</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/09</date>
+				<day>Mon</day>
+		
+				<time>11:06 PM</time>
+			
+				<pred>2.14</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/10</date>
+				<day>Tue</day>
+		
+				<time>05:35 AM</time>
+			
+				<pred>0.09</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/10</date>
+				<day>Tue</day>
+		
+				<time>11:43 AM</time>
+			
+				<pred>1.90</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/10</date>
+				<day>Tue</day>
+		
+				<time>05:39 PM</time>
+			
+				<pred>0.34</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/10</date>
+				<day>Tue</day>
+		
+				<time>11:45 PM</time>
+			
+				<pred>2.14</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/11</date>
+				<day>Wed</day>
+		
+				<time>06:15 AM</time>
+			
+				<pred>0.08</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/11</date>
+				<day>Wed</day>
+		
+				<time>12:22 PM</time>
+			
+				<pred>1.92</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/11</date>
+				<day>Wed</day>
+		
+				<time>06:19 PM</time>
+			
+				<pred>0.33</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/12</date>
+				<day>Thu</day>
+		
+				<time>12:25 AM</time>
+			
+				<pred>2.14</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/12</date>
+				<day>Thu</day>
+		
+				<time>06:54 AM</time>
+			
+				<pred>0.08</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/12</date>
+				<day>Thu</day>
+		
+				<time>01:02 PM</time>
+			
+				<pred>1.93</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/12</date>
+				<day>Thu</day>
+		
+				<time>07:00 PM</time>
+			
+				<pred>0.32</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/13</date>
+				<day>Fri</day>
+		
+				<time>01:05 AM</time>
+			
+				<pred>2.14</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/13</date>
+				<day>Fri</day>
+		
+				<time>07:33 AM</time>
+			
+				<pred>0.08</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/13</date>
+				<day>Fri</day>
+		
+				<time>01:42 PM</time>
+			
+				<pred>1.94</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/13</date>
+				<day>Fri</day>
+		
+				<time>07:42 PM</time>
+			
+				<pred>0.31</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/14</date>
+				<day>Sat</day>
+		
+				<time>01:47 AM</time>
+			
+				<pred>2.13</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/14</date>
+				<day>Sat</day>
+		
+				<time>08:14 AM</time>
+			
+				<pred>0.09</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/14</date>
+				<day>Sat</day>
+		
+				<time>02:23 PM</time>
+			
+				<pred>1.97</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/14</date>
+				<day>Sat</day>
+		
+				<time>08:26 PM</time>
+			
+				<pred>0.29</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/15</date>
+				<day>Sun</day>
+		
+				<time>02:31 AM</time>
+			
+				<pred>2.13</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/15</date>
+				<day>Sun</day>
+		
+				<time>08:57 AM</time>
+			
+				<pred>0.09</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/15</date>
+				<day>Sun</day>
+		
+				<time>03:07 PM</time>
+			
+				<pred>2.00</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/15</date>
+				<day>Sun</day>
+		
+				<time>09:13 PM</time>
+			
+				<pred>0.28</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/16</date>
+				<day>Mon</day>
+		
+				<time>03:17 AM</time>
+			
+				<pred>2.11</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/16</date>
+				<day>Mon</day>
+		
+				<time>09:42 AM</time>
+			
+				<pred>0.10</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/16</date>
+				<day>Mon</day>
+		
+				<time>03:53 PM</time>
+			
+				<pred>2.04</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/16</date>
+				<day>Mon</day>
+		
+				<time>10:04 PM</time>
+			
+				<pred>0.26</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/17</date>
+				<day>Tue</day>
+		
+				<time>04:07 AM</time>
+			
+				<pred>2.08</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/17</date>
+				<day>Tue</day>
+		
+				<time>10:29 AM</time>
+			
+				<pred>0.10</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/17</date>
+				<day>Tue</day>
+		
+				<time>04:42 PM</time>
+			
+				<pred>2.10</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/17</date>
+				<day>Tue</day>
+		
+				<time>11:00 PM</time>
+			
+				<pred>0.23</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/18</date>
+				<day>Wed</day>
+		
+				<time>05:01 AM</time>
+			
+				<pred>2.04</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/18</date>
+				<day>Wed</day>
+		
+				<time>11:20 AM</time>
+			
+				<pred>0.12</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/18</date>
+				<day>Wed</day>
+		
+				<time>05:34 PM</time>
+			
+				<pred>2.16</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/18</date>
+				<day>Wed</day>
+		
+				<time>11:59 PM</time>
+			
+				<pred>0.19</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/19</date>
+				<day>Thu</day>
+		
+				<time>05:58 AM</time>
+			
+				<pred>2.00</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/19</date>
+				<day>Thu</day>
+		
+				<time>12:13 PM</time>
+			
+				<pred>0.13</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/19</date>
+				<day>Thu</day>
+		
+				<time>06:29 PM</time>
+			
+				<pred>2.23</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/20</date>
+				<day>Fri</day>
+		
+				<time>01:00 AM</time>
+			
+				<pred>0.14</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/20</date>
+				<day>Fri</day>
+		
+				<time>06:59 AM</time>
+			
+				<pred>1.97</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/20</date>
+				<day>Fri</day>
+		
+				<time>01:09 PM</time>
+			
+				<pred>0.14</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/20</date>
+				<day>Fri</day>
+		
+				<time>07:26 PM</time>
+			
+				<pred>2.29</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/21</date>
+				<day>Sat</day>
+		
+				<time>02:01 AM</time>
+			
+				<pred>0.07</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/21</date>
+				<day>Sat</day>
+		
+				<time>08:01 AM</time>
+			
+				<pred>1.97</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/21</date>
+				<day>Sat</day>
+		
+				<time>02:07 PM</time>
+			
+				<pred>0.14</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/21</date>
+				<day>Sat</day>
+		
+				<time>08:24 PM</time>
+			
+				<pred>2.36</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/22</date>
+				<day>Sun</day>
+		
+				<time>03:01 AM</time>
+			
+				<pred>-0.00</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/22</date>
+				<day>Sun</day>
+		
+				<time>09:02 AM</time>
+			
+				<pred>1.99</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/22</date>
+				<day>Sun</day>
+		
+				<time>03:05 PM</time>
+			
+				<pred>0.12</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/22</date>
+				<day>Sun</day>
+		
+				<time>09:21 PM</time>
+			
+				<pred>2.41</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/23</date>
+				<day>Mon</day>
+		
+				<time>03:59 AM</time>
+			
+				<pred>-0.06</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/23</date>
+				<day>Mon</day>
+		
+				<time>10:00 AM</time>
+			
+				<pred>2.03</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/23</date>
+				<day>Mon</day>
+		
+				<time>04:03 PM</time>
+			
+				<pred>0.11</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/23</date>
+				<day>Mon</day>
+		
+				<time>10:16 PM</time>
+			
+				<pred>2.44</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/24</date>
+				<day>Tue</day>
+		
+				<time>04:54 AM</time>
+			
+				<pred>-0.10</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/24</date>
+				<day>Tue</day>
+		
+				<time>10:56 AM</time>
+			
+				<pred>2.07</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/24</date>
+				<day>Tue</day>
+		
+				<time>04:59 PM</time>
+			
+				<pred>0.09</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/24</date>
+				<day>Tue</day>
+		
+				<time>11:11 PM</time>
+			
+				<pred>2.44</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/25</date>
+				<day>Wed</day>
+		
+				<time>05:48 AM</time>
+			
+				<pred>-0.12</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/25</date>
+				<day>Wed</day>
+		
+				<time>11:49 AM</time>
+			
+				<pred>2.09</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/25</date>
+				<day>Wed</day>
+		
+				<time>05:54 PM</time>
+			
+				<pred>0.08</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/26</date>
+				<day>Thu</day>
+		
+				<time>12:04 AM</time>
+			
+				<pred>2.41</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/26</date>
+				<day>Thu</day>
+		
+				<time>06:39 AM</time>
+			
+				<pred>-0.10</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/26</date>
+				<day>Thu</day>
+		
+				<time>12:42 PM</time>
+			
+				<pred>2.11</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/26</date>
+				<day>Thu</day>
+		
+				<time>06:48 PM</time>
+			
+				<pred>0.10</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/27</date>
+				<day>Fri</day>
+		
+				<time>12:57 AM</time>
+			
+				<pred>2.35</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/27</date>
+				<day>Fri</day>
+		
+				<time>07:29 AM</time>
+			
+				<pred>-0.06</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/27</date>
+				<day>Fri</day>
+		
+				<time>01:34 PM</time>
+			
+				<pred>2.11</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/27</date>
+				<day>Fri</day>
+		
+				<time>07:41 PM</time>
+			
+				<pred>0.13</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/28</date>
+				<day>Sat</day>
+		
+				<time>01:49 AM</time>
+			
+				<pred>2.27</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/28</date>
+				<day>Sat</day>
+		
+				<time>08:18 AM</time>
+			
+				<pred>-0.00</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/28</date>
+				<day>Sat</day>
+		
+				<time>02:25 PM</time>
+			
+				<pred>2.10</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/28</date>
+				<day>Sat</day>
+		
+				<time>08:33 PM</time>
+			
+				<pred>0.18</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/29</date>
+				<day>Sun</day>
+		
+				<time>02:41 AM</time>
+			
+				<pred>2.17</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/29</date>
+				<day>Sun</day>
+		
+				<time>09:06 AM</time>
+			
+				<pred>0.07</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/29</date>
+				<day>Sun</day>
+		
+				<time>03:16 PM</time>
+			
+				<pred>2.09</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/29</date>
+				<day>Sun</day>
+		
+				<time>09:27 PM</time>
+			
+				<pred>0.23</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/30</date>
+				<day>Mon</day>
+		
+				<time>03:32 AM</time>
+			
+				<pred>2.07</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/30</date>
+				<day>Mon</day>
+		
+				<time>09:54 AM</time>
+			
+				<pred>0.14</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/30</date>
+				<day>Mon</day>
+		
+				<time>04:05 PM</time>
+			
+				<pred>2.07</pred>
+			
+				<highlow>H</highlow>
+			
+			</item>
+		
+			<item>
+				<date>2025/06/30</date>
+				<day>Mon</day>
+		
+				<time>10:20 PM</time>
+			
+				<pred>0.28</pred>
+			
+				<highlow>L</highlow>
+			
+			</item>
+		
+		</data>
+</datainfo>
