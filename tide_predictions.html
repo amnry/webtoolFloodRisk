@@ -410,32 +410,12 @@
                     <div class="station-card" data-station="nyc">
                         <div class="station-name">New York City</div>
                         <div class="station-location">The Battery, NY</div>
-                        <div class="station-badge" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">No Data</div>
-                    </div>
-                    <div class="station-card" data-station="boston">
-                        <div class="station-name">Boston</div>
-                        <div class="station-location">Boston Harbor, MA</div>
-                        <div class="station-badge" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">No Data</div>
+                        <div class="station-badge" style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);">Real Data</div>
                     </div>
                     <div class="station-card" data-station="miami">
                         <div class="station-name">Miami</div>
                         <div class="station-location">Miami Beach, FL</div>
                         <div class="station-badge" style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);">Real Data</div>
-                    </div>
-                    <div class="station-card" data-station="seattle">
-                        <div class="station-name">Seattle</div>
-                        <div class="station-location">Seattle Harbor, WA</div>
-                        <div class="station-badge" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">No Data</div>
-                    </div>
-                    <div class="station-card" data-station="sanfrancisco">
-                        <div class="station-name">San Francisco</div>
-                        <div class="station-location">San Francisco Bay, CA</div>
-                        <div class="station-badge" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">No Data</div>
-                    </div>
-                    <div class="station-card" data-station="galveston">
-                        <div class="station-name">Galveston</div>
-                        <div class="station-location">Galveston Bay, TX</div>
-                        <div class="station-badge" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">No Data</div>
                     </div>
                 </div>
             </div>
@@ -608,6 +588,8 @@
                 loadPortJeffersonDataRange(fromDate, toDate);
             } else if (selectedStation === 'miami') {
                 loadMiamiDataRange(fromDate, toDate);
+            } else if (selectedStation === 'nyc') {
+                loadNYCDataRange(fromDate, toDate);
             } else {
                 // Show data not available for other stations
                 setTimeout(() => {
@@ -662,6 +644,34 @@
                 })
                 .catch(error => {
                     console.error('Error loading Miami data:', error);
+                    document.getElementById('predictionsContent').innerHTML = `
+                        <div class="no-station-selected">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h4>Error Loading Data</h4>
+                            <p>Unable to load tide predictions. Please try again.</p>
+                        </div>
+                    `;
+                });
+        }
+        
+        function loadNYCDataRange(fromDate, toDate) {
+            fetch(`/api/nyc-tides?from_date=${fromDate}&to_date=${toDate}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displayPortJeffersonDataRange(data.tide_data, data.statistics);
+                    } else {
+                        document.getElementById('predictionsContent').innerHTML = `
+                            <div class="no-station-selected">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h4>Data Unavailable</h4>
+                                <p>${data.message}</p>
+                            </div>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading NYC data:', error);
                     document.getElementById('predictionsContent').innerHTML = `
                         <div class="no-station-selected">
                             <i class="fas fa-exclamation-triangle"></i>
@@ -886,12 +896,12 @@
                 <div class="no-station-selected">
                     <i class="fas fa-exclamation-triangle"></i>
                     <h4>Data Not Available</h4>
-                    <p>Tide prediction data is not available for this station. Only Port Jefferson and Miami stations have real NOAA tide data.</p>
+                    <p>Tide prediction data is not available for this station. Only Port Jefferson, Miami, and NYC Battery Park stations have real NOAA tide data.</p>
                     <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #3498db;">
                         <strong>Available Data:</strong><br>
                         • <strong>Port Jefferson, NY</strong> - Real NOAA tide predictions<br>
                         • <strong>Miami Beach, FL</strong> - Real NOAA tide predictions<br>
-                        • Other stations - Data not available
+                        • <strong>New York City, NY</strong> - Real NOAA tide predictions
                     </div>
                 </div>
             `;
@@ -911,12 +921,12 @@
                 <div class="no-station-selected">
                     <i class="fas fa-exclamation-triangle"></i>
                     <h4>Data Not Available</h4>
-                    <p>Tide prediction data is not available for this station. Only Port Jefferson and Miami stations have real NOAA tide data.</p>
+                    <p>Tide prediction data is not available for this station. Only Port Jefferson, Miami, and NYC Battery Park stations have real NOAA tide data.</p>
                     <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #3498db;">
                         <strong>Available Data:</strong><br>
                         • <strong>Port Jefferson, NY</strong> - Real NOAA tide predictions<br>
                         • <strong>Miami Beach, FL</strong> - Real NOAA tide predictions<br>
-                        • Other stations - Data not available
+                        • <strong>New York City, NY</strong> - Real NOAA tide predictions
                     </div>
                 </div>
             `;

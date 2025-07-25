@@ -138,6 +138,60 @@ def miami_tides():
             'message': f'Error retrieving tide data: {str(e)}'
         })
 
+@app.route('/api/nyc-tides')
+def nyc_tides():
+    """API endpoint to get NYC Battery Park tide data"""
+    from_date = request.args.get('from_date')
+    to_date = request.args.get('to_date')
+    single_date = request.args.get('date')
+    
+    try:
+        if from_date and to_date:
+            # Date range request
+            tide_data = generate_date_range_tide_data(from_date, to_date, 'nyc')
+            statistics = get_date_range_statistics(from_date, to_date, 'nyc')
+            
+            if tide_data and statistics:
+                return jsonify({
+                    'success': True,
+                    'from_date': from_date,
+                    'to_date': to_date,
+                    'tide_data': tide_data,
+                    'statistics': statistics
+                })
+            else:
+                return jsonify({
+                    'success': False,
+                    'message': 'No tide data available for the specified date range'
+                })
+        elif single_date:
+            # Single date request (backward compatibility)
+            tide_data = generate_24_hour_tide_data(single_date, 'nyc')
+            statistics = get_tide_statistics(single_date, 'nyc')
+            
+            if tide_data and statistics:
+                return jsonify({
+                    'success': True,
+                    'date': single_date,
+                    'tide_data': tide_data,
+                    'statistics': statistics
+                })
+            else:
+                return jsonify({
+                    'success': False,
+                    'message': 'No tide data available for the specified date'
+                })
+        else:
+            return jsonify({
+                'success': False,
+                'message': 'Please provide either date or from_date and to_date parameters'
+            })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'Error retrieving tide data: {str(e)}'
+        })
+
 @app.route('/chat', methods=['POST'])
 def chat():
     try:

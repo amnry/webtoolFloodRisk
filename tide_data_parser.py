@@ -9,7 +9,8 @@ def parse_tide_data(station):
     # Map station names to file names
     station_files = {
         'portjefferson': 'HighTide/portJeff.txt',
-        'miami': 'HighTide/miami.txt'
+        'miami': 'HighTide/miami.txt',
+        'nyc': 'HighTide/nycBatteryPark.txt'
     }
     
     if station not in station_files:
