@@ -9,7 +9,7 @@ This directory contains satellite altimetry data processing scripts and data fil
 
 ## Large Data Files
 
-The `monthly_raw/` directory contains 365+ NetCDF (.nc) files of satellite sea level data from 2010-2023. These files are **too large for GitHub** (total size ~1GB).
+The `monthly_raw/` directory contains 365+ NetCDF (.nc) files of satellite sea level data from 2010-2023. These files are **too large for GitHub** (total size > 10GB).
 
 ### Data Details
 - **Source**: Satellite altimetry missions (Jason-1, Jason-2, Jason-3)
