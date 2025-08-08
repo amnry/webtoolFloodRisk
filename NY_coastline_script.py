@@ -1,10 +1,18 @@
 import sys
 import ee
+import os
 
-ee.Authenticate(scopes=['https://www.googleapis.com/auth/earthengine', 
-                        'https://www.googleapis.com/auth/devstorage.full_control',
-                        'https://www.googleapis.com/auth/cloud-platform'])
-ee.Initialize(project='ee-amanarya1910')
+# Check if credentials exist and use persistent authentication
+credentials_path = os.path.expanduser('~/.config/earthengine/credentials')
+if os.path.exists(credentials_path):
+    # Use existing credentials - no need to authenticate again
+    ee.Initialize(project='ee-amanarya1910')
+else:
+    # Only authenticate if credentials don't exist
+    ee.Authenticate(scopes=['https://www.googleapis.com/auth/earthengine', 
+                            'https://www.googleapis.com/auth/devstorage.full_control',
+                            'https://www.googleapis.com/auth/cloud-platform'])
+    ee.Initialize(project='ee-amanarya1910')
 import folium
 
 def generate_map(flood_level=2.0):

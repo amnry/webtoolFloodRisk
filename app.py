@@ -201,13 +201,47 @@ def chat():
         if not user_message:
             return jsonify({'error': 'No message provided'}), 400
         
+        # Check if this is a tide-related query
+        tide_keywords = ['tide', 'high tide', 'low tide', 'highest tide', 'lowest tide', 'tidal', 'water level']
+        is_tide_query = any(keyword in user_message.lower() for keyword in tide_keywords)
+        
         # Initialize OpenAI client if not already done
         global openai_client
         if openai_client is None:
             api_key = os.getenv('OPENAI_API_KEY')
             if not api_key:
                 return jsonify({'error': 'OpenAI API key not configured'}), 500
-            openai_client = openai.OpenAI(api_key=api_key)
+            openai.api_key = api_key
+            openai_client = openai
+        
+        # Handle tide queries with MindsDB integration
+        if is_tide_query:
+            try:
+                # Import MindsDB integration
+                from mindsdb_integration import CoastalDataMindsDB
+                
+                # Initialize MindsDB connection
+                coastal_mindsdb = CoastalDataMindsDB()
+                
+                if coastal_mindsdb.connection:
+                    # Load tide data if not already loaded
+                    coastal_mindsdb.load_tide_data()
+                    
+                    # Process the tide query
+                    tide_response = process_tide_query(user_message, coastal_mindsdb)
+                    
+                    if tide_response:
+                        return jsonify({'response': tide_response})
+                    else:
+                        # Fall back to general response
+                        pass
+                else:
+                    # MindsDB not available, provide fallback response
+                    return jsonify({'response': "I can help with tide queries, but MindsDB connection is not available. Please ensure MindsDB is running and try again."})
+                    
+            except Exception as e:
+                print(f"Error processing tide query: {str(e)}")
+                # Fall back to general response
         
         # Create system message for context
         system_message = """You are a comprehensive AI assistant for the CoastalDEM v3.0 Web Application. You have complete knowledge of the codebase and can answer questions about all features, implementation, and usage. Provide SHORT, CONCISE answers (1-2 sentences maximum).
@@ -228,6 +262,21 @@ def chat():
         - Elevation Range: -10 to +100 meters above mean sea level
         - Processing Method: Machine learning-based error correction applied to SRTM and ASTER GDEM data
         - Validation: Verified against high-accuracy lidar and GPS measurements
+
+        TIDE PREDICTIONS SYSTEM:
+        - Available Stations: NYC (The Battery), Boston, Miami, Seattle, San Francisco, Galveston, Port Jefferson
+        - Features: 24-hour tide predictions, interactive charts, high/low tide times
+        - Data: Simulated tide data based on realistic tidal patterns
+        - Chart Visualization: Uses Chart.js for interactive tide height graphs
+        - Date Selection: Users can choose any date for predictions
+        - Key Metrics: High tide, low tide, tidal range, next high tide timing
+        - Access: Via "Tide Predictions" button below the flood level slider
+
+        TIDE QUERY CAPABILITIES:
+        - Query highest/lowest tides for specific months and locations
+        - Available locations: NYC, Boston, Miami, Seattle, San Francisco, Galveston, Port Jefferson
+        - Can analyze tide patterns and statistics
+        - Supports date range queries and monthly analysis
 
         MAIN FEATURES:
         1. FLOOD RISK VISUALIZATION:
@@ -304,7 +353,7 @@ def chat():
         IMPORTANT: Keep all responses brief and to the point. Use 1-2 sentences maximum. Be direct and avoid lengthy explanations."""
         
         # Call OpenAI API
-        response = openai_client.chat.completions.create(
+        response = openai_client.ChatCompletion.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": system_message},
@@ -321,6 +370,119 @@ def chat():
     except Exception as e:
         print(f"Error in chat endpoint: {str(e)}")
         return jsonify({'error': 'Failed to get response from AI'}), 500
+
+def process_tide_query(user_message, coastal_mindsdb):
+    """
+    Process tide-related queries using MindsDB integration
+    """
+    try:
+        # Extract location and time information from user message
+        locations = ['nyc', 'boston', 'miami', 'seattle', 'san francisco', 'galveston', 'port jefferson']
+        months = ['january', 'february', 'march', 'april', 'may', 'june', 
+                 'july', 'august', 'september', 'october', 'november', 'december']
+        
+        # Find mentioned location
+        mentioned_location = None
+        for loc in locations:
+            if loc in user_message.lower():
+                mentioned_location = loc
+                break
+        
+        # Find mentioned month
+        mentioned_month = None
+        for month in months:
+            if month in user_message.lower():
+                mentioned_month = month
+                break
+        
+        # Handle different types of tide queries
+        if 'highest' in user_message.lower() and mentioned_location:
+            if mentioned_month:
+                # Query for highest tide in specific month
+                month_num = months.index(mentioned_month) + 1
+                query = f"""
+                SELECT date, time, prediction, type
+                FROM tide_predictions 
+                WHERE station = '{mentioned_location.replace(' ', '')}'
+                AND EXTRACT(MONTH FROM date) = {month_num}
+                AND type = 'high'
+                ORDER BY prediction DESC
+                LIMIT 1
+                """
+            else:
+                # Query for highest tide overall
+                query = f"""
+                SELECT date, time, prediction, type
+                FROM tide_predictions 
+                WHERE station = '{mentioned_location.replace(' ', '')}'
+                AND type = 'high'
+                ORDER BY prediction DESC
+                LIMIT 1
+                """
+            
+            result = coastal_mindsdb.connection.query(query)
+            
+            if result and len(result) > 0:
+                tide_data = result[0]
+                return f"The highest tide at {mentioned_location.title()} was {tide_data['prediction']:.2f}m on {tide_data['date']} at {tide_data['time']}."
+            else:
+                return f"No tide data available for {mentioned_location.title()}."
+        
+        elif 'lowest' in user_message.lower() and mentioned_location:
+            if mentioned_month:
+                # Query for lowest tide in specific month
+                month_num = months.index(mentioned_month) + 1
+                query = f"""
+                SELECT date, time, prediction, type
+                FROM tide_predictions 
+                WHERE station = '{mentioned_location.replace(' ', '')}'
+                AND EXTRACT(MONTH FROM date) = {month_num}
+                AND type = 'low'
+                ORDER BY prediction ASC
+                LIMIT 1
+                """
+            else:
+                # Query for lowest tide overall
+                query = f"""
+                SELECT date, time, prediction, type
+                FROM tide_predictions 
+                WHERE station = '{mentioned_location.replace(' ', '')}'
+                AND type = 'low'
+                ORDER BY prediction ASC
+                LIMIT 1
+                """
+            
+            result = coastal_mindsdb.connection.query(query)
+            
+            if result and len(result) > 0:
+                tide_data = result[0]
+                return f"The lowest tide at {mentioned_location.title()} was {tide_data['prediction']:.2f}m on {tide_data['date']} at {tide_data['time']}."
+            else:
+                return f"No tide data available for {mentioned_location.title()}."
+        
+        elif mentioned_location:
+            # General tide information for location
+            query = f"""
+            SELECT AVG(prediction) as avg_tide, COUNT(*) as data_points
+            FROM tide_predictions 
+            WHERE station = '{mentioned_location.replace(' ', '')}'
+            """
+            
+            result = coastal_mindsdb.connection.query(query)
+            
+            if result and len(result) > 0:
+                stats = result[0]
+                return f"Average tide at {mentioned_location.title()}: {stats['avg_tide']:.2f}m ({stats['data_points']} data points)."
+            else:
+                return f"No tide data available for {mentioned_location.title()}."
+        
+        else:
+            # General tide information
+            return "I can help with tide queries. Try asking about highest/lowest tides for specific locations like NYC, Boston, Miami, Seattle, San Francisco, Galveston, or Port Jefferson."
+    
+    except Exception as e:
+        print(f"Error processing tide query: {str(e)}")
+        return "I encountered an error processing your tide query. Please try again or ask about available tide stations."
 
 # Optional: Serve other static files if needed
 @app.route('/<path:filename>')
